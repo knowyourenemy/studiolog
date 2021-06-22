@@ -1,0 +1,128 @@
+.create-header {
+    font-weight: 700;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.create-back {
+    
+    background-color: transparent;
+    border: solid 2px white;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    text-align: center;
+    padding: 1px 6px;
+    margin-left: 15px;
+    
+
+}
+
+.create-message {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.create-field{
+    background-color: transparent;
+    border: solid 2px white;
+    margin: 0 5px;
+    color: white;
+
+}
+
+.session-date {
+    width: 150px;
+}
+
+.session-duration {
+    width: 170px;
+}
+
+.session-instrument {
+    width: 435px;
+}
+
+.session-piece, .piece-name, .piece-artist, .instrument-name {
+    width: 465px;
+}
+
+.piece-album{
+    width: 460px;
+}
+
+.session-notes, .piece-notes, .instrument-notes {
+    width: 465px;
+    height: 100px;
+}
+
+@media screen and (max-width: 720px) {
+    .create-header  {
+        font-size: 23px;
+    }
+
+    .session-date {
+        width: 145px;
+    }
+    
+    .session-duration {
+        width: 165px;
+    }
+    
+    .session-instrument {
+        width: 420px;
+    }
+    
+    .session-piece, .piece-name, .piece-artist, .instrument-name {
+        width: 450px;
+    }
+
+    .piece-album {
+        width: 445px;
+    }
+    
+    .session-notes, .piece-notes, .instrument-notes {
+        width: 450px;
+
+    }
+
+
+    
+}
+
+@media screen and (max-width: 520px) {
+    .create-header  {
+        font-size: 20px;
+    }
+
+    .session-date {
+        width: 70px;
+    }
+    
+    .session-duration {
+        width: 55px;
+    }
+    
+    .session-instrument {
+        width: 195px;
+    }
+    
+    .session-piece, .piece-name, .piece-artist, .instrument-name {
+        width: 225px;
+    }
+
+    .piece-album {
+        width: 220px;
+    }
+    
+    .session-notes, .piece-notes, .instrument-notes {
+        width: 225px;
+    }
+
+
+    
+}
+

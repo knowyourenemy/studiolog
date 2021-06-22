@@ -1,0 +1,238 @@
+#filter-form-wrapper{
+    display: none;
+    
+}
+
+.list-buttons {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    margin: 0 5px;
+    
+}
+
+.list-button {
+    width: 25px;
+    border: 2px solid white;
+    border-radius: 20%;
+    margin: 5px 5px 5px 0;
+    padding: 2px;
+}
+
+.list-empty {
+    padding: 5px;
+    font-size: 22px;
+    text-align: center;
+
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 0;
+    max-height: 500px;
+    overflow-y: auto;
+    
+}
+
+.list-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px dashed white;
+     
+    
+}
+
+.session-field, .piece-field {
+    width: 28%;
+    font-size: 22px;
+    padding: 0 5px;
+  
+
+}
+
+.instrument-field {
+    width: 84%;
+    font-size: 22px;
+    padding: 0 5px;
+    overflow: auto;
+}
+
+
+
+.list-row-buttons {
+    width: 16%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-row-button{
+    height: 20px;
+}
+
+
+
+.filter-form-wrapper{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.13);
+    padding: 15px 15px;
+    border-radius: 20px;
+    align-self: flex-start;
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+    font-size: 20px;
+}
+
+.filter-field{
+    background-color: transparent;
+    border: solid 2px white;
+ 
+    color: white;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+form{
+    margin-block-end: 0;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.stats-primary-wrapper, .stats-secondary-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    align-items: center;
+    margin:25px 50px;
+    padding: 0 10px;
+    overflow: hidden;
+
+    
+    
+}
+
+.stats-primary-wrapper{
+    background-color: #b35340;
+    color: white;
+}
+
+.stats-secondary-wrapper{
+    background-color: white;
+    color: #512b2c;
+}
+
+.stats-icon {
+    width: 80px;
+    margin-top: 10px;
+}
+
+.stats-data {
+    display: flex;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 110%;
+    text-align: center;
+}
+
+.stats-header {
+    font-size: 25px;
+    text-align: center;
+}
+
+@media screen and (max-width: 720px) {
+
+   
+
+    .session-field, .piece-field {
+        font-size: 20px;
+        
+
+        
+    }
+
+    .instrument-field {
+       
+        font-size: 20px;
+    }
+
+    .list-empty {
+        font-size: 20px;
+    
+    }
+   
+    
+
+    .stats-primary-wrapper, .stats-secondary-wrapper {
+        width: 200px;
+        height: 200px;
+        margin: 25px; 
+        
+    }
+
+    .stats-icon {
+        width: 60px;
+    }
+    
+    .stats-data {
+        font-size: 45px;
+    }
+    
+    .stats-header {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    .list-empty {
+        font-size: 18px;
+    
+    }
+
+    .session-field-instrument, .piece-field-album {
+        display: none;
+    }
+
+    .session-field, .piece-field {
+        font-size: 18px;
+        width: 35%;
+    }
+
+    .instrument-field {
+        font-size: 18px;
+        width: 70%;
+    }
+
+    .list-row-buttons {
+        width: 30%;
+    }
+
+}
+
+
+
+

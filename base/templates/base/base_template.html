@@ -1,0 +1,74 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <title>Studio Log</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'base/base_template.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Keep track of your musical journey!" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'base/favicon.ico' %}"/>
+    <link rel="apple-touch-icon" sizes="48x48" href="{% static 'base/logo48.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'base/logo72.png' %}">
+    <link rel="apple-touch-icon" sizes="96x96" href="{% static 'base/logo96.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'base/logo144.png' %}">
+    <link rel="apple-touch-icon" sizes="192x192" href="{% static 'base/logo192.png' %}">
+    <link rel="apple-touch-icon" sizes="512x512" href="{% static 'base/logo512.png' %}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://knowyourenemy.github.io/ask-a-dog">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Studio Log">
+    <meta property="og:description" content="Keep track of your musical journey!">
+    <meta property="og:image" content="{% static 'base/feature.png' %}">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">1
+    <meta property="twitter:domain" content="knowyourenemy.github.io">
+    <meta property="twitter:url" content="https://knowyourenemy.github.io/ask-a-dog">
+    <meta name="twitter:title" content="Studio Log">
+    <meta name="twitter:description" content="Keep track of your musical journey!">
+    <meta name="twitter:image" content="{% static 'base/feature.png' %}">
+
+
+
+</head>
+<body>
+    <div class='studio-container'>
+        <div class='studio-username'>
+            {% if request.user.is_authenticated %}
+            <div>{{request.user}}</div>
+            <div class='studio-seperator'>|</div>
+            <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+            <a href="{% url 'login' %}">login</a>
+            {% endif %}
+        </div>
+        <div class='studio-header'>
+            STUDIO LOG
+        </div>
+        <div class='studio-navigation'>
+            <a href="{% url 'practice list' %}" class="btn btn-primary left-button">Sessions</a>
+            <a href="{% url 'instrument list' %}" class="btn btn-primary center-button">Instruments</a>
+            <a href="{% url 'piece list' %}" class="btn btn-primary right-button">Pieces</a>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    
+
+</body>
+
+</html>

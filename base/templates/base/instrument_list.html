@@ -1,0 +1,63 @@
+{% extends 'base/base_template.html' %}
+{% load static %}
+{% load modulo %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> 
+</script>
+<link rel="stylesheet" type="text/css" href="{% static 'base/list.css' %}">
+
+<div class='list-buttons'>
+    <a href="{% url 'instrument create' %}"><img class="list-button" src="{% static 'base/add.png' %}" /></a>
+    <a><img class="list-button" id="filter-button" src="{% static 'base/filter.png' %}" /></a>
+</div>
+
+<div class="filter-form-wrapper" id="filter-form-wrapper">
+    <form method="GET" id="filter-form", class="filter-form">
+        {{ filter.form }}
+        <div class='submit-wrapper'>
+            <input type="submit" value="Filter"/>
+        </div>
+    </form>
+</div>
+
+<div class='list'>
+
+    {% for instrument in filter.qs %}
+    <div class='list-row'>
+        <div class='instrument-field'>{{instrument.name}}</div>
+        <div class='list-row-buttons'>
+            <a href="{% url 'instrument detail' instrument.id %}"><img class="list-row-button" src="{% static 'base/view.png' %}" alt="view"/></a>
+            <a href="{% url 'instrument update' instrument.id %}"><img class="list-row-button" src="{% static 'base/edit.png' %}" alt="edit"/></a>
+            <a href="{% url 'instrument delete' instrument.id %}"><img class="list-row-button" src="{% static 'base/delete.png' %}" alt="delete"/></a>
+        </div>
+        
+    </div>
+    {% empty %}
+        <div class='list-empty'>You currently have no instruments. Press the + button on the top left corner to begin!</div>
+    {% endfor %}
+
+</div>
+
+<div class='stats-container'>
+    <div class='stats-primary-wrapper'>
+        <img class='stats-icon' src="{% static 'base/fire.png' %}" alt="fire icon"/>
+        <div class='stats-data'>{{ most_practiced_hours|total_time }}</div>
+        <div class='stats-header'>{{most_practiced_name}}</div>
+    </div>
+    <div class='stats-secondary-wrapper'>
+        <img class='stats-icon' src="{% static 'base/stats.png' %}" alt="stats icon"/>
+        <div class='stats-data'>{{total_instruments}}</div>
+        <div class='stats-header'>instruments</div>
+    </div>
+</div>
+
+<script>
+    var clickCount = 0;
+    
+    $('#filter-button').click(function(){
+        $('#filter-form-wrapper').toggle();
+    });
+</script>
+
+{% endblock %}

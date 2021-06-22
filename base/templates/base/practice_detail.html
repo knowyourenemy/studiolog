@@ -1,0 +1,17 @@
+{% extends 'base/base_template.html' %}
+{% load static %}
+{% load modulo %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/detail.css' %}">
+
+<div class='detail-header'>My Session</div>
+<div class='detail-fields'>
+    <div class='detail-field'>Date: {{session.date}}</div>
+    <div class='detail-field'>Duration: {{session.duration|time}}</div>
+    <div class='detail-field'>Instrument: {{session.instrument}}</div>
+    <div class='detail-field'>Piece: {{session.piece}}</div>
+    <div class='detail-field'>Notes: {{session.notes}}</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,182 @@
+.detail-header {
+    font-weight: 700;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.detail-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+    text-align: justify;
+
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    
+}
+
+.list-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px dashed white;
+    
+    
+}
+
+.session-field {
+    width: 28%;
+    font-size: 22px;
+    padding: 0 5px;
+
+}
+
+
+.list-row-buttons {
+    width: 16%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-row-button{
+    height: 20px;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.stats-primary-wrapper, .stats-secondary-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    align-items: center;
+    margin:25px 50px;
+    padding: 0 10px;
+    
+    
+}
+
+.stats-primary-wrapper{
+    background-color: #b35340;
+    color: white;
+}
+
+.stats-secondary-wrapper{
+    background-color: white;
+    color: #512b2c;
+}
+
+.stats-icon {
+    width: 80px;
+    margin-top: 10px;
+}
+
+.stats-data {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 110%;
+    text-align: center;
+}
+
+.stats-header {
+    font-size: 25px;
+    text-align: center;
+}
+
+.delete-back {
+    background-color: transparent;
+    border: solid 2px white;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    text-align: center;
+    padding: 1px 6px;
+    margin-left: 15px;
+
+}
+
+.delete-confirm {
+    font-size: 22px;
+    padding: 5px;
+    text-align: center;
+}
+
+@media screen and (max-width: 720px) {
+    .detail-header {
+        font-size: 23px;
+    }
+
+    .detail-fields {
+        font-size: 20px;
+    }
+
+    .stats-primary-wrapper, .stats-secondary-wrapper {
+        width: 200px;
+        height: 200px;
+        margin: 25px; 
+        
+    }
+
+    .stats-icon {
+        width: 60px;
+    }
+    
+    .stats-data {
+        font-size: 45px;
+    }
+    
+    .stats-header {
+        font-size: 20px;
+    }
+
+    .delete-confirm {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .session-field-piece, .session-field-instrument {
+        display: none;
+    }
+
+    .detail-header {
+        font-size: 20px;
+    }
+
+    .detail-fields {
+        font-size: 18px;
+    }
+
+    .session-field {
+        font-size: 18px;
+        width: 35%;
+    }
+
+    .list-row-buttons {
+        width: 30%;
+    }
+
+    .delete-confirm {
+        font-size: 18px;
+    }
+}

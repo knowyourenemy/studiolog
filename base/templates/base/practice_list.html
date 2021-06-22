@@ -1,0 +1,86 @@
+{% extends 'base/base_template.html' %}
+{% load static %}
+{% load modulo %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> 
+</script>
+<link rel="stylesheet" type="text/css" href="{% static 'base/list.css' %}">
+
+<div class='list-buttons'>
+    <a href="{% url 'practice create' %}"><img class="list-button" src="{% static 'base/add.png' %}" /></a>
+    <a><img class="list-button" id="filter-button" src="{% static 'base/filter.png' %}" /></a>
+</div>
+
+
+<div class="filter-form-wrapper" id="filter-form-wrapper">
+    <form method="GET" id="filter-form", class="filter-form">
+        {{ filter.form|crispy }}
+        <div class='submit-wrapper'>
+            <input type='submit' value='Filter'>
+        </div>
+    </form>
+</div>
+
+<div class='list'>
+
+    {% for session in filter.qs %}
+    <div class='list-row'>
+        <div class='session-field'>{{session.date}}</div>
+        <div class='session-field session-field-instrument'>{{session.instrument}}</div>
+        <div class='session-field'>{{session.duration|time }}</div>
+        <div class='list-row-buttons'>
+            <a href="{% url 'practice detail' session.id %}"><img class="list-row-button" src="{% static 'base/view.png' %}" alt="view"/></a>
+            <a href="{% url 'practice update' session.id %}"><img class="list-row-button" src="{% static 'base/edit.png' %}" alt="update"/></a>
+            <a href="{% url 'practice delete' session.id %}"><img class="list-row-button" src="{% static 'base/delete.png' %}" alt="delete"/></a>
+        </div>
+        
+        
+    </div>
+    {% empty %}
+        <div class='list-empty'>You currently have no sessions. Press the + button on the top left corner to begin!</div>
+    {% endfor %}
+
+</div>
+
+<div class='stats-container'>
+    <div class='stats-primary-wrapper'>
+        <img class='stats-icon' src="{% static 'base/fire.png' %}" alt="fire icon"/>
+        <div class='stats-data'>{{ streak }} Days</div>
+        <div class='stats-header'>current streak</div>
+    </div>
+    <div class='stats-secondary-wrapper'>
+        <img class='stats-icon' src="{% static 'base/time.png' %}" alt="time icon"/>
+        <div class='stats-data'>{{ longest_session|time }}</div>
+        <div class='stats-header'>longest session</div>
+    </div>
+    <div class='stats-secondary-wrapper'>
+        <img class='stats-icon' src="{% static 'base/music-black.png' %}" alt="music icon"/>
+        <div class='stats-data'>{{ sum_session|total_time}}</div>
+        <div class='stats-header'>total duration</div>
+    </div>
+    <div class='stats-primary-wrapper'>
+        <img class='stats-icon' src="{% static 'base/stats-white.png' %}" alt="stats icon"/>
+        <div class='stats-data'>{{ avg_session|time}}</div>
+        <div class='stats-header'>average session</div>
+    </div>
+
+</div>
+
+<script>
+
+
+    var clickCount = 0;
+    
+    $('#filter-button').click(function(){
+        $('#filter-form-wrapper').toggle();
+    });
+    
+    
+</script>
+
+{% endblock content %}

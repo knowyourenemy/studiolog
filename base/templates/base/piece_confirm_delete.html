@@ -1,0 +1,48 @@
+
+
+{% extends 'base/base_template.html' %}
+{% load static %}
+{% load modulo %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/detail.css' %}">
+
+<div class='detail-header'>My Piece</div>
+<div class='detail-fields'>
+    <div class='detail-field'>Name: {{piece.name}}</div>
+    <div class='detail-field'>Notes: {{piece.notes}}</div>
+</div>
+
+<div class='detail-header'>Sessions</div>
+
+<div class='list'>
+
+    {% for session in piece.sessions.all %}
+    <div class='list-row'>
+        <div class='session-field'>{{session.date}}</div>
+        <div class='session-field session-field-instrument'>{{session.instrument}}</div>
+        <div class='session-field'>{{session.duration|time}}</div>
+        <div class='list-row-buttons'>
+            <a href="{% url 'practice detail' session.id %}"><img class="list-row-button" src="{% static 'base/view.png' %}" alt="view" /></a>
+            <a href="{% url 'practice update' session.id %}"><img class="list-row-button" src="{% static 'base/edit.png' %}" alt="update"/></a>
+            <a href="{% url 'practice delete' session.id %}"><img class="list-row-button" src="{% static 'base/delete.png' %}" alt="delete"/></a>
+        </div>
+        
+    </div>
+    {% empty %}
+        <h3>No sessions</h3>
+    {% endfor %}
+
+</div>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class='delete-confirm'>Are you sure you want to delete this piece?</div>
+    <div class='submit-wrapper'>
+        <input type="submit" value="Delete"/>
+        <a href="{% url 'piece list' %}" class='delete-back'>Go Back</a>
+    </div>
+</form>
+
+{% endblock %}

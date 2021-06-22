@@ -1,0 +1,19 @@
+{% extends 'base/base_template.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/create.css' %}">
+
+<div class='create-header'>My Piece</div>
+
+
+<form method="POST" action="" class='create-form'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class='submit-wrapper'>
+        <input type="submit" value="Create"/>
+        <a href="{% url 'piece list' %}" class='create-back'>Go Back</a>
+    </div>
+</form>
+
+{% endblock %}

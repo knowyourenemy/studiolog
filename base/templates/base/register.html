@@ -1,0 +1,20 @@
+{% extends 'base/base_template.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'base/login.css' %}">
+
+<div class='login-header'>Register</div>
+
+<form method="POST" class='login-form'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class='submit-wrapper'>
+        <input type="submit" value="Register"/>
+    </div>
+</form>
+
+<div class='login-message'>Already have an account? <a href="{% url 'login' %}">Login!</a></div>
+
+{% endblock %}
