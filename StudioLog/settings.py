@@ -30,6 +30,7 @@ DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 #DEBUG = True
 
 ALLOWED_HOSTS = ['studiolog.herokuapp.com']
+SECURE_SSL_REDIRECT = True
 
 
 # Application definition
