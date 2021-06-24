@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic.base import TemplateView
 from django.urls import reverse_lazy
 from django import forms
 from django.forms.widgets import DateTimeInput, Select, SplitDateTimeWidget, SelectDateWidget, TextInput, Textarea
@@ -19,6 +20,11 @@ from .filters import InstrumentFilter, PieceFilter, PracticeFilter
 from django.db.models import Max, Avg, Sum, Count
 
 # Create your views here.
+class InfoView(TemplateView):
+    template_name = 'base/info.html'
+    
+
+
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
     fields = '__all__'
@@ -52,6 +58,7 @@ class PracticeList(LoginRequiredMixin, ListView):
     model = Practice
     context_object_name = 'sessions'
     ordering = ['-date']
+    login_url = reverse_lazy('info')
 
     def current_streak(self):
         total_streak = 0
@@ -97,6 +104,7 @@ class PracticeList(LoginRequiredMixin, ListView):
 class PracticeDetail(LoginRequiredMixin, DetailView):
     model = Practice
     context_object_name = 'session'
+    login_url = reverse_lazy('info')
 
 class PracticeCreate(LoginRequiredMixin, CreateView):
     model = Practice
@@ -104,6 +112,7 @@ class PracticeCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('practice list')
     date_range = 1
     this_year = datetime.datetime.now().year
+    login_url = reverse_lazy('info')
 
     def validate_duration(self, value):
         if value < datetime.timedelta(days=0, seconds=0):
@@ -139,6 +148,7 @@ class PracticeUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('practice list')
     date_range = 1
     this_year = datetime.datetime.now().year
+    login_url = reverse_lazy('info')
 
     def validate_duration(self, value):
         if value < datetime.timedelta(days=0, seconds=0):
@@ -167,10 +177,12 @@ class PracticeDelete(LoginRequiredMixin, DeleteView):
     model = Practice
     context_object_name = 'session'
     success_url = reverse_lazy('practice list')
+    login_url = reverse_lazy('info')
 
 class InstrumentList(LoginRequiredMixin, ListView):
     model = Instrument
     context_object_name = 'instruments'
+    login_url = reverse_lazy('info')
 
     def get_most_practiced(self, instruments):
         most_practiced_name = ""
@@ -200,6 +212,7 @@ class InstrumentList(LoginRequiredMixin, ListView):
 class InstrumentDetail(LoginRequiredMixin, DetailView):
     model = Instrument
     context_object_name = 'instrument'
+    login_url = reverse_lazy('info')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -211,6 +224,7 @@ class InstrumentCreate(LoginRequiredMixin, CreateView):
     model = Instrument
     fields = ['name', 'notes']
     success_url = reverse_lazy('instrument list')
+    login_url = reverse_lazy('info')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -227,6 +241,7 @@ class InstrumentUpdate(LoginRequiredMixin, UpdateView):
     model = Instrument
     fields = ['name', 'notes']
     success_url = reverse_lazy('instrument list')
+    login_url = reverse_lazy('info')
 
     def get_form(self):
         form = super(InstrumentUpdate, self).get_form()
@@ -239,10 +254,12 @@ class InstrumentDelete(LoginRequiredMixin, DeleteView):
     model = Instrument
     context_object_name = 'instrument'
     success_url = reverse_lazy('instrument list')
+    login_url = reverse_lazy('info')
 
 class PieceList(LoginRequiredMixin, ListView):
     model = Piece
     context_object_name = 'pieces'
+    login_url = reverse_lazy('info')
 
     def get_most_practiced(self, pieces):
         most_practiced_name = ""
@@ -270,6 +287,7 @@ class PieceList(LoginRequiredMixin, ListView):
 class PieceDetail(LoginRequiredMixin, DetailView):
     model = Piece
     context_object_name = 'piece'
+    login_url = reverse_lazy('info')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -283,6 +301,7 @@ class PieceCreate(LoginRequiredMixin, CreateView):
     model = Piece
     fields = ['name', 'artist', 'album', 'notes']
     success_url = reverse_lazy('piece list')
+    login_url = reverse_lazy('info')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -300,6 +319,7 @@ class PieceUpdate(LoginRequiredMixin, UpdateView):
     model = Piece
     fields = ['name', 'artist', 'album', 'notes']
     success_url = reverse_lazy('piece list')
+    login_url = reverse_lazy('info')
 
     def get_form(self):
         form = super(PieceUpdate, self).get_form()
@@ -314,6 +334,7 @@ class PieceDelete(LoginRequiredMixin, DeleteView):
     model = Piece
     context_object_name = 'piece'
     success_url = reverse_lazy('piece list')
+    login_url = reverse_lazy('info')
 
 
 

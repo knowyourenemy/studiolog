@@ -12,3 +12,14 @@
 .helptext {
     display: none;
 }
+
+.login-back {
+    background-color: transparent;
+    border: solid 2px white;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    text-align: center;
+    padding: 1px 6px;
+    margin-left: 15px;
+}

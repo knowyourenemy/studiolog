@@ -1,0 +1,34 @@
+{% extends 'base/base_template.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/info.css' %}">
+
+<img class="info-icon" alt="icon" src="{% static 'base/info-icon.png' %}" />
+
+<div class="info-description">
+    <div class="info-description-header">
+        What is StudioLog?
+    </div>
+    StudioLog allows musicians to keep track of the hours they spend on their instruments. It lets users record the details of each practice session, as well as the instruments and pieces involved. Users can then easily access and filter through this information, and even view some summary statistics!
+    
+</div>
+
+<div class="info-cases">
+    <div class="info-cases-header">
+        Use Cases
+    </div>
+    This website can not only be used by aspiring musicians to monitor their progress, but also by music teachers and students to record the details of each lesson and store notes for each lesson, instrunment, or piece.
+</div>
+
+<div class="info-disclaimer">
+    Note: This website is a passion project meant for my own learning, and is not intended for commercial distribution or use. View the code <a href="https://github.com/knowyourenemy/studiolog" rel="noreferrer noopener" target="_blank" class="info-github">here</a>.
+</div>
+
+<div class="info-start">Get Started!</div>
+
+<div class="info-buttons">
+    <a href="{% url 'login' %}" class='info-button'>Login</a>
+    <a href="{% url 'register' %}" class='info-button'>Register</a>
+</div>
+{% endblock %}

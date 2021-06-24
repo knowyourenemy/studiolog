@@ -1,13 +1,14 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
 
-from .views import CustomLoginView, InstrumentCreate, InstrumentDelete, InstrumentDetail, InstrumentList, InstrumentUpdate, PieceCreate, PieceDelete, PieceDetail, PieceList, PieceUpdate, PracticeDelete, PracticeDetail, PracticeList, PracticeCreate, PracticeUpdate, RegisterView
+from .views import CustomLoginView, InstrumentCreate, InstrumentDelete, InstrumentDetail, InstrumentList, InstrumentUpdate, PieceCreate, PieceDelete, PieceDetail, PieceList, PieceUpdate, PracticeDelete, PracticeDetail, PracticeList, PracticeCreate, PracticeUpdate, RegisterView, InfoView
 
 urlpatterns = [
+    path('', InfoView.as_view(), name='info'),
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('logout/', LogoutView.as_view(next_page='info'), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
-    path('', PracticeList.as_view(), name='practice list'),
+    path('practice', PracticeList.as_view(), name='practice list'),
     path('practice/<int:pk>/', PracticeDetail.as_view(), name='practice detail'),
     path('practice-create/', PracticeCreate.as_view(), name='practice create'),
     path('practice-update/<int:pk>/', PracticeUpdate.as_view(), name='practice update'),

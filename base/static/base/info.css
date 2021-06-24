@@ -1,0 +1,102 @@
+.studio-navigation {
+    display: none;
+}
+
+.info-icon {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
+
+.info-start {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.info-disclaimer {
+    font-size: 18px;
+    text-align: center;
+}
+
+.info-description, .info-cases{
+    font-size: 22px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: justify;
+    margin: 20px;
+    width: 500px;
+}
+
+.info-description {
+    background-color: #b35340;
+}
+
+.info-cases {
+    background-color: #c38054;
+}
+
+.info-description-header, .info-cases-header{
+    text-decoration: underline;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.info-button {
+    background-color: transparent;
+    border: solid 2px white;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    text-align: center;
+    padding: 1px 6px;
+    font-size: 22px;
+    margin: 10px;
+}
+
+.info-github{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 720px) {
+    .info-start {
+        font-size: 20px;
+    }
+    
+    .info-disclaimer {
+        font-size: 18px;
+    }
+    
+    .info-description, .info-cases{
+        font-size: 20px;
+        width: 450px;
+    }
+
+    .info-icon {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .info-start {
+        font-size: 18px;
+    }
+    
+    .info-disclaimer {
+        font-size: 18px;
+    }
+    
+    .info-description, .info-cases{
+        font-size: 18px;
+        width: 300px;
+    }
+
+    .info-icon {
+        width: 150px;
+    }
+}
