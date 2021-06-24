@@ -22,7 +22,7 @@
 .info-description, .info-cases{
     font-size: 22px;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     text-align: justify;
     margin: 20px;
     width: 500px;
@@ -40,6 +40,7 @@
     text-decoration: underline;
     font-weight: 700;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .info-buttons {
